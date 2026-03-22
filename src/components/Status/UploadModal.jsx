@@ -69,7 +69,7 @@ const UploadModal = ({ isOpen, onClose, file, previewUrl }) => {
             placeholder="Enter some caption..."
             value={caption}
             onChange={(e) => setCaption(e.target.value)}
-            className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-teal-500"
+            className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-cyan-500"
           />
 
           <div className="flex items-center justify-between gap-4">
@@ -91,7 +91,7 @@ const UploadModal = ({ isOpen, onClose, file, previewUrl }) => {
             <button
               onClick={handleUpload}
               disabled={isStatusUploading}
-              className="flex items-center gap-2 bg-teal-500 hover:bg-teal-600 text-white px-6 py-2.5 rounded-xl font-medium transition disabled:opacity-50"
+              className="flex items-center gap-2 bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-2.5 rounded-xl font-medium transition disabled:opacity-50"
             >
               {isStatusUploading ? (
                 <Loader2 size={18} className="animate-spin" />

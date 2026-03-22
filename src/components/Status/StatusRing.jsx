@@ -8,7 +8,7 @@ const StatusRing = ({ stories, viewedStoryIds, children }) => {
         className={`w-14 h-14 flex-shrink-0 flex items-center justify-center p-[3px] rounded-full border-[3px] ${
           isViewed
             ? "border-slate-300 dark:border-slate-700"
-            : "border-teal-500"
+            : "border-cyan-500"
         } relative`}
       >
         <div className="w-full h-full rounded-full overflow-hidden">

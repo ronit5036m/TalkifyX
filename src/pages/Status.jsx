@@ -140,11 +140,11 @@ const Status = () => {
             <div className="relative">
               <img
                 src={user?.avatar || Image.defaultUser}
-                className={`w-14 h-14 rounded-full object-cover ${myStatus ? "border-[3px] border-teal-500 p-[2px]" : ""}`}
+                className={`w-14 h-14 rounded-full object-cover ${myStatus ? "border-[3px] border-cyan-500 p-[2px]" : ""}`}
                 alt="Me"
               />
               <div
-                className="absolute bottom-0 right-0 bg-teal-500 rounded-full p-1 border-2 border-white dark:border-slate-900 cursor-pointer hover:bg-teal-600 transition-transform hover:scale-110 shadow-sm"
+                className="absolute bottom-0 right-0 bg-cyan-500 rounded-full p-1 border-2 border-white dark:border-slate-900 cursor-pointer hover:bg-cyan-600 transition-transform hover:scale-110 shadow-sm"
                 onClick={(e) => {
                   e.stopPropagation();
                   e.preventDefault();
