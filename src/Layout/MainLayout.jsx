@@ -15,7 +15,7 @@ const MainLayout = () => {
     <div
       className={`flex h-screen w-screen overflow-hidden ${theme.bg} ${theme.text} transition-colors duration-300`}
     >
-      <div className={isChatDetailPage && "hidden md:block"}>
+      <div className={isChatDetailPage ? "hidden md:block" : ""}>
         <Sidebar />
       </div>
       <main className="flex-1 h-full relative flex">

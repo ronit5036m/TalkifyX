@@ -140,10 +140,10 @@ const StatusViewer = ({
               alt="avatar"
             />
             <div className="flex flex-col">
-              <span className="font-semibold text-[15px]">
-                {statusGroup.user.username}
+              <span className="font-semibold text-xl">
+                {statusGroup.user.username || `Unknown user`}
               </span>
-              <span className="text-xs text-white/70">
+              <span className="text-md font-medium text-white/70">
                 {formatStatusTime(currentStory.createdAt)}
               </span>
             </div>
@@ -223,7 +223,7 @@ const StatusViewer = ({
           className="absolute bottom-0 left-0 right-0 bg-zinc-900 rounded-t-3xl z-30 flex flex-col h-[60vh] border-t border-white/10"
         >
           <div
-            className="w-full flex flex-col items-center justify-center p-2 cursor-pointer hover:bg-white/5"
+            className="w-full flex flex-col items-center justify-center p-2 cursor-pointer hover:bg-white/2"
             onClick={() => setShowViewers(!showViewers)}
           >
             {showViewers ? (
@@ -238,7 +238,7 @@ const StatusViewer = ({
           </div>
 
           <div className="flex-1 overflow-y-auto p-4 pt-2 custom-scrollbar">
-            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider text-white/50">
+            <h3 className="text-white font-semibold mb-4 text-sm capitalize tracking-wider text-white/50">
               Viewed by
             </h3>
             {viewers.length > 0 ? (
@@ -247,10 +247,10 @@ const StatusViewer = ({
                   <div key={viewer._id} className="flex items-center gap-3">
                     <img
                       src={viewer.avatar || Image.defaultUser}
-                      className="w-10 h-10 rounded-full object-cover"
+                      className="w-12 h-12 rounded-full object-cover"
                       alt="viewer"
                     />
-                    <span className="text-white font-medium">
+                    <span className="text-white text-xl font-medium">
                       {viewer.username}
                     </span>
                   </div>

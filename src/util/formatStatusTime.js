@@ -23,11 +23,11 @@ const formatStatusTime = (dateString) => {
     hour12: true,
   });
 
-  if (isToday) return `Today at ${timeString}`;
-  if (isYesterday) return `Yesterday at ${timeString}`;
+  if (isToday) return `Today at ${timeString.toLowerCase()}`;
+  if (isYesterday) return `Yesterday at ${timeString.toLowerCase()}`;
 
   // Fallback just in case
-  return `${date.toLocaleDateString()} at ${timeString}`;
+  return `${date.toLocaleDateString()} at ${timeString.toLowerCase()}`;
 };
 
 export default formatStatusTime;

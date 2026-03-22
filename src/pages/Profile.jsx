@@ -19,6 +19,7 @@ import { Image } from "../assets/image";
 import { api } from "../api/api";
 import toast from "react-hot-toast";
 import { motion, AnimatePresence } from "framer-motion";
+import RightSideContent from "../components/RightSIdeContent";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -460,19 +461,12 @@ const Profile = () => {
           </div>
         </div>
       </motion.div>
-
-      <div
-        className={`hidden md:flex flex-1 relative items-center justify-center overflow-hidden`}
-      >
-        <div className="flex flex-col items-center justify-center text-center opacity-40 select-none">
-          <UserRound size={120} className="mb-6 stroke-[1.5]" />
-          <h2 className="text-2xl font-light mb-3">Profile</h2>
-          <p className="text-base max-w-sm">
-            Update your profile details, photo, and manage how others see you on
-            the platform.
-          </p>
-        </div>
-      </div>
+      <RightSideContent
+        name="Profile"
+        details="Update your profile details, photo, and manage how others see you on the platform"
+        Icon={UserRound}
+        size={100}
+      />
     </div>
   );
 };

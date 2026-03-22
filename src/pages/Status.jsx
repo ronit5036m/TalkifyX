@@ -10,6 +10,7 @@ import { Image } from "../assets/image";
 import StatusRing from "../components/Status/StatusRing";
 import UploadModal from "../components/Status/UploadModal";
 import StatusViewer from "../components/Status/StatusViewer";
+import RightSideContent from "../components/RightSideContent";
 import formatStatusTime from "../util/formatStatusTime";
 
 const Status = () => {
@@ -99,7 +100,6 @@ const Status = () => {
           />
         )}
       </AnimatePresence>
-
       {/* LEFT SIDE: Lists */}
       <motion.div
         initial={{ x: -20, opacity: 0 }}
@@ -180,11 +180,11 @@ const Status = () => {
           {recentUpdates.length > 0 && (
             <div className="mb-4">
               <div
-                className={`px-5 py-2 text-sm font-semibold ${theme.textMuted} uppercase tracking-wider text-[12px] bg-black/5 dark:bg-white/5`}
+                className={`px-5 py-2 text-sm font-semibold ${theme.textMuted} capitalize tracking-wider text-[12px] bg-black/5 dark:bg-white/5`}
               >
                 Recent updates
               </div>
-              {recentUpdates.map((status) => (
+              {recentUpdates.map((status, indx) => (
                 <div
                   key={status.user._id}
                   onClick={() => setSelectedStatusGroup(status)}
@@ -197,12 +197,12 @@ const Status = () => {
                     <img
                       src={status.user.avatar || Image.defaultUser}
                       className="w-full h-full object-cover"
-                      alt={status.user.username}
+                      alt={status.user.username || `Unknown${indx}`}
                     />
                   </StatusRing>
                   <div className="flex-1">
                     <h3 className={`font-medium ${theme.text} text-base`}>
-                      {status.user.username}
+                      {status.user.username || `Unknown${indx}`}
                     </h3>
                     <p className={`text-sm ${theme.textMuted}`}>
                       {formatStatusTime(
@@ -219,11 +219,11 @@ const Status = () => {
           {viewedUpdates.length > 0 && (
             <div>
               <div
-                className={`px-5 py-2 text-sm font-semibold ${theme.textMuted} uppercase tracking-wider text-[12px] bg-black/5 dark:bg-white/5`}
+                className={`px-5 py-2 text-sm font-semibold ${theme.textMuted} capitalize tracking-wider text-[12px] bg-black/5 dark:bg-white/5`}
               >
                 Viewed updates
               </div>
-              {viewedUpdates.map((status) => (
+              {viewedUpdates.map((status, indx) => (
                 <div
                   key={status.user._id}
                   onClick={() => setSelectedStatusGroup(status)}
@@ -235,16 +235,16 @@ const Status = () => {
                     <img
                       src={status.user.avatar || Image.defaultUser}
                       className="w-full h-full rounded-full object-cover opacity-70"
-                      alt={status.user.username}
+                      alt={status.user.username || `Unknown${indx}`}
                     />
                   </div>
                   <div className="flex-1">
                     <h3
                       className={`font-medium ${theme.text} text-base opacity-70`}
                     >
-                      {status.user.username}
+                      {status.user.username || `Unknown${indx}`}
                     </h3>
-                    <p className={`text-sm ${theme.textMuted}`}>
+                    <p className={`text-sm font-medium ${theme.textMuted}`}>
                       {formatStatusTime(
                         status.stories[status.stories.length - 1].createdAt,
                       )}
@@ -257,7 +257,6 @@ const Status = () => {
         </div>
       </motion.div>
 
-      {/* RIGHT SIDE: Viewer (Overlay) */}
       <div
         className={`${selectedStatusGroup ? "fixed inset-0 z-[60] flex bg-black md:static md:z-auto" : "hidden md:flex"} flex-1 relative items-center justify-center overflow-hidden`}
       >
@@ -269,13 +268,12 @@ const Status = () => {
             onClose={() => setSelectedStatusGroup(null)}
           />
         ) : (
-          <div className="flex flex-col items-center justify-center text-center opacity-50 select-none">
-            <CircleFadingPlus size={100} className="m-4" />
-            <h2 className="text-xl font-medium mb-2">Share status updates</h2>
-            <p className="text-sm max-w-xs font-medium">
-              Share photo that disappear after 24 hours.
-            </p>
-          </div>
+          <RightSideContent
+            Icon={CircleFadingPlus}
+            name={"Share status updates"}
+            details={"Share photo that disappear after 24 hours."}
+            size={100}
+          />
         )}
       </div>
     </div>
