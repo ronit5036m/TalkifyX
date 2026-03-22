@@ -15,8 +15,8 @@ import { Image } from "../../assets/image";
 import useAuthStore from "../../stores/useAuthStore";
 import useChatStore from "../../stores/useChatStore";
 import toast from "react-hot-toast";
-import SettingsModal from "./SettingsModal";
-import MobileMenu from "./MobileMenu";
+import SettingsModal from "../Chat/SettingsModal";
+import MobileMenu from "../Chat/MobileMenu";
 
 const Sidebar = () => {
   const theme = useTheme();

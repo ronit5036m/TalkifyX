@@ -1,53 +1,17 @@
-import React from "react";
-import { MessageSquareText, Lock } from "lucide-react";
-import { useTheme } from "../../theme/Theme";
-import { Image } from "../../assets/image";
-import { useThemeStore } from "../../stores/useThemeStore";
+import { MessageSquareText } from "lucide-react";
 
 const EmptyChatState = () => {
-  const theme = useTheme();
-  const isDark = useThemeStore((state) => state.isDarkMode);
-
   return (
     <div
-      className={`
-        flex flex-col items-center justify-center h-full w-full px-6 text-center
-        ${theme.navBg} border-b-8 border-cyan-500
-      `}
+      className={`hidden md:flex flex-1 relative items-center justify-center overflow-hidden `}
     >
-      <div className="flex items-center justify-center mb-6 relative">
-        <div
-          className={`absolute inset-0 ${
-            isDark ? "bg-cyan-500/10" : "bg-cyan-500/30"
-          }  rounded-full animate-ping opacity-75`}
-        />
-        <div
-          className={`relative p-8 rounded-full ${theme.navBg} shadow-sm border-5 ${theme.divider}`}
-        >
-          <MessageSquareText
-            size={64}
-            strokeWidth={1.5}
-            className="text-cyan-500"
-          />
-        </div>
-      </div>
-
-      <h2
-        className={`text-2xl md:text-3xl font-semibold font-mono mb-3 ${theme.text}`}
-      >
-        Welcome to TalkifyX
-      </h2>
-
-      <p
-        className={`text-sm md:text-base font-medium max-w-md leading-relaxed ${theme.textMuted}`}
-      >
-        Select a conversation from the sidebar to start chatting, or search for
-        a new connection.
-      </p>
-      
-      <div className="absolute bottom-8 flex items-center gap-2 text-xs text-gray-400">
-        <Lock size={14} />
-        <span>Secure</span>
+      <div className="flex flex-col items-center justify-center text-center opacity-50 select-none">
+        <MessageSquareText size={100} className="m-4" />
+        <h2 className="text-xl font-medium mb-2">Welcome to TalkifyX</h2>
+        <p className="text-sm max-w-xs font-medium">
+          Select a conversation from the sidebar to start chatting, or search
+          for a new connection.
+        </p>
       </div>
     </div>
   );

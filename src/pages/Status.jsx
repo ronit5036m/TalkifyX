@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ArrowLeft, Plus, MoreVertical } from "lucide-react";
+import { ArrowLeft, Plus, MoreVertical, CircleFadingPlus } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import useAuthStore from "../stores/useAuthStore";
@@ -270,27 +270,10 @@ const Status = () => {
           />
         ) : (
           <div className="flex flex-col items-center justify-center text-center opacity-50 select-none">
-            <div className="w-24 h-24 rounded-full border-2 border-current flex items-center justify-center mb-6">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="8" x2="12" y2="12"></line>
-                <line x1="12" y1="16" x2="12.01" y2="16"></line>
-              </svg>
-            </div>
-            <h2 className="text-xl font-medium mb-2">
-              Click on a contact to view status
-            </h2>
-            <p className="text-sm max-w-xs">
-              User statuses will disappear after 24 hours.
+            <CircleFadingPlus size={100} className="m-4" />
+            <h2 className="text-xl font-medium mb-2">Share status updates</h2>
+            <p className="text-sm max-w-xs font-medium">
+              Share photo that disappear after 24 hours.
             </p>
           </div>
         )}
