@@ -19,7 +19,7 @@ import { Image } from "../assets/image";
 import { api } from "../api/api";
 import toast from "react-hot-toast";
 import { motion, AnimatePresence } from "framer-motion";
-import RightSideContent from "../components/RightSIdeContent";
+import RightSideContent from "../components/RightSideContent";
 
 const Profile = () => {
   const navigate = useNavigate();
