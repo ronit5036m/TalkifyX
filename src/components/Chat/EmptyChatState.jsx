@@ -1,5 +1,5 @@
 import { MessageSquareText } from "lucide-react";
-import RightSideContent from "../RightSIdeContent";
+import RightSideContent from "../RightSideContent";
 
 const EmptyChatState = () => {
   return (
